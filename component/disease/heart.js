@@ -12,7 +12,7 @@ import {
   Button,
   Image,
   Dimensions,
-  
+
   //Header,
 } from 'react-native';
 import { StackNavigator, TabNavigator,TabBarBottom,TabView,DrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation';
@@ -63,7 +63,7 @@ const { width, height } = Dimensions.get('window');
 
   }
   select = () =>{
-      
+
     if(this.state.index==2)
     {
       return "orange"
@@ -80,7 +80,7 @@ render(){
     value: 'Urgent',
   }, {
     value: 'Normal',
-  }, 
+  },
     ];
 
 return (
@@ -126,7 +126,7 @@ return (
     onChangeText={(username) => this.setState({username})}
     underlineColorAndroid='#000000'
     placeholderTextColor='#000000'
-   /> 
+   />
    </View>
    <View style={styles.top}>
 
@@ -185,48 +185,7 @@ return (
     {title:'action4'},
     //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
   ]
- 
-  /*const MyApp = TabNavigator({
-    HEART: {
-      screen: heart,
-    },
-    STROKE: {
-      screen: stroke,
-    },
-    OTHERS: {
-      screen: others,
-      navigationOptions : {
-        //tabBarLabel: 'MyHome',
-        // Note: By default the icon is only shown on iOS. Search the showIcon option below.
-        tabBarIcon: ({tintColor}) => (
-          <Icon  raised
-          name='checkbox-blank'
-          type='material-community' style={{color:'grey'}} />
-        ),
-      }
-    },
-  }, {
-      tabBarComponent:TabBarBottom,
-      tabBarPosition: 'bottom',
-      animationEnabled: true,
-      swipeEnabled:true,
-       tabBarOptions: {
-         activeTintColor: 'red',
-         showIcon:true,
-        // inactiveTintColor:'grey',=
 
-         style: {
-          backgroundColor: 'white',
-      
-        },
-        labelStyle:{
-          fontSize:15,
-          fontWeight:'bold',
-          //color:"#000000"
-        }
-       },
-       
-    });*/
     const abc = createBottomTabNavigator({
       HEART: heart,
       STROKE: stroke,
@@ -236,12 +195,12 @@ return (
     navigationOptions : {
       //tabBarLabel: 'MyHome',
       // Note: By default the icon is only shown on iOS. Search the showIcon option below.
-      tabBarIcon: ({tintColor}) => 
+      tabBarIcon: ({tintColor}) =>
         <Icon
         name='square'
-        type='font-awesome' 
+        type='font-awesome'
 	      color={tintColor} />
-      
+
     },
   tabBarComponent:TabView.TabBarBottom,
   tabBarPosition: 'bottom',
@@ -252,7 +211,7 @@ return (
        showIcon:true,
        style: {
         backgroundColor: '#ffffff',
-    
+
       },
       labelStyle:{
         fontSize:15,
@@ -270,7 +229,7 @@ return (
       alignContent:'stretch',
       alignSelf:'auto',
       alignItems:'stretch'
-      
+
     },
 
     toolBar:{
@@ -345,19 +304,19 @@ return (
     baseText:{
       fontSize:18,
       marginTop:25,
-      
+
     },
     baseText1:{
       fontSize:18,
       marginTop:15,
-      
-      
+
+
     },
     baseText2:{
       fontSize:18,
       marginBottom:8,
       marginTop:8
-      
+
     },
 
     textInput: {
@@ -372,7 +331,7 @@ return (
       fontSize:17,
       marginLeft:15,
       marginRight:15
-      
+
   },
   topMenu: {
     height: 53,
@@ -422,9 +381,9 @@ return (
   });
   const CustomDrawerContentComponent = (props) => (
     <View>
-    <View style ={{height: 150,width:300,paddingLeft:60,backgroundColor:'white'}}>
-      
-        <Image 
+    <View style ={{height: 150,width:500,paddingLeft:10,backgroundColor:'white'}}>
+
+        <Image
           style={styles.drawerImage}
           source={require('../logo.png')}
           />
@@ -435,9 +394,9 @@ return (
   )
   const MyApp = DrawerNavigator({
     'Requset a Review' :{screen:abc},
-    'On Going Treatments':{screen:on_going_treatments},
+    'Ongoing Treatments':{screen:on_going_treatments},
     'Review History':{screen:review_history},
-     Preference:{screen:preference},
+     'Preferences':{screen:preference},
     //Chat:{screen: chat},
      'Log Out':{screen:signout}
    },{
@@ -446,7 +405,7 @@ return (
      drawerOpenRoute:'DrawerOpen',
      drawerCloseRoute:'DrawerClose',
      drawerToggleRoute:'DrawerToggle',
-     drawerWidth:220,
+     drawerWidth:400,
      drawerBackgroundColor: "#404040",
      contentOptions: {
       labelStyle: {
@@ -455,13 +414,12 @@ return (
     }
    },
    {
-   drawerWidth:150,
+   drawerWidth:400,
    drawerBackgroundColor: "#404040",
    contentOptions: {
     labelStyle: {
       color: 'white',
     },
-    
     activeTintColor:'red'
   }
    },

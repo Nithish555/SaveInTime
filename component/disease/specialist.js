@@ -59,7 +59,7 @@ render(){
     value: 'Urgent',
   }, {
     value: 'Normal',
-  }, 
+  },
     ];
 
 return (
@@ -98,7 +98,7 @@ return (
             }
           />
         </View>
-      
+
 </View>
       );
     }
@@ -113,7 +113,7 @@ return (
     {title:'action4'},
     //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
   ]
- 
+
   /*const MyApp = TabNavigator({
     HEART: {
       screen: heart,
@@ -145,7 +145,7 @@ return (
 
          style: {
           backgroundColor: 'white',
-      
+
         },
         labelStyle:{
           fontSize:15,
@@ -153,7 +153,7 @@ return (
           //color:"#000000"
         }
        },
-       
+
     });*/
     /*const abc = createBottomTabNavigator({
       HEART: heart,
@@ -164,12 +164,12 @@ return (
     navigationOptions : {
       //tabBarLabel: 'MyHome',
       // Note: By default the icon is only shown on iOS. Search the showIcon option below.
-      tabBarIcon: ({tintColor}) => 
+      tabBarIcon: ({tintColor}) =>
         <Icon
         name='square'
-        type='font-awesome' 
+        type='font-awesome'
 	      color={tintColor} />
-      
+
     },
   tabBarComponent:TabView.TabBarBottom,
   tabBarPosition: 'bottom',
@@ -180,7 +180,7 @@ return (
        showIcon:true,
        style: {
         backgroundColor: '#ffffff',
-    
+
       },
       labelStyle:{
         fontSize:15,
@@ -198,7 +198,7 @@ return (
       alignContent:'stretch',
       alignSelf:'auto',
       alignItems:'stretch'
-      
+
     },
 
     toolBar:{
@@ -273,12 +273,12 @@ return (
     baseText:{
       fontSize:18,
       marginTop:25,
-      
+
     },
     baseText1:{
       fontSize:18,
       marginTop:15,
-      
+
     },
 
     textInput: {
@@ -293,7 +293,7 @@ return (
       fontSize:17,
       marginLeft:15,
       marginRight:15
-      
+
   },
   topMenu: {
     height: 53,
@@ -340,9 +340,9 @@ return (
   });
   const CustomDrawerContentComponent = (props) => (
     <View>
-    <View style ={{height: 150,width:300,paddingLeft:60,backgroundColor:'white'}}>
-      
-        <Image 
+    <View style ={{height: 150,width:500,paddingLeft:10,backgroundColor:'white'}}>
+
+        <Image
           style={styles.drawerImage}
           source={require('../logo.png')}
           />
@@ -352,10 +352,10 @@ return (
      </View>
   )
   const MyApp = DrawerNavigator({
-     Home :{screen:specialist},
+     'Home' :{screen:specialist},
    // 'On Going Treatments':{screen:on_going_treatments},
     //'Review History':{screen:review_history},
-     Preference:{screen:preference},
+     'Preferences':{screen:preference},
     //Chat:{screen: chat},
     'Log Out':{screen:signout}
    },{
@@ -364,7 +364,7 @@ return (
      drawerOpenRoute:'DrawerOpen',
      drawerCloseRoute:'DrawerClose',
      drawerToggleRoute:'DrawerToggle',
-     drawerWidth:220,
+     drawerWidth:400,
      drawerBackgroundColor: "#404040",
      contentOptions: {
       labelStyle: {
@@ -373,13 +373,13 @@ return (
     }
    },
    {
-   drawerWidth:150,
+   drawerWidth:400,
    drawerBackgroundColor: "#404040",
    contentOptions: {
     labelStyle: {
       color: 'white',
     },
-    
+
     activeTintColor:'red'
   }
    },

@@ -19,12 +19,8 @@ const util=require('util');
 export default class signout extends Component{
 
   static navigationOption={
-    title:'signout',
+    title:'Sign out',
   };
-
-
-
-
 
 render(){
   var {navigate}=this.props.navigation;

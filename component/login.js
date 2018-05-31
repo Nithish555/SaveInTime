@@ -13,7 +13,6 @@ import {
   Image
   //Header,
 } from 'react-native';
-import tabnav from './disease/tabnav'
 
 const util=require('util');
 
@@ -23,7 +22,7 @@ export default class login extends Component{
   static navigationOption={
     title:'login',
   };
-  
+
   state={
     username: '',
     password: '',
@@ -33,10 +32,10 @@ export default class login extends Component{
   }
   submitForm = () => {
     const {username , password} = this.state
-    if(this.state.username == "Nithish"){
+    if(this.state.username == "RP"){
        this.props.navigation.navigate("heart",{})
 }
-else if(this.state.username == "Nehal"){
+else if(this.state.username == "RK"){
   this.props.navigation.navigate("specialist",{})
 }
   }
@@ -50,7 +49,7 @@ return (
 
   <View  style ={ styles.container}>
 
-  
+
   <Image style={{width:150,height:145}}
        source={require('./img.png')}/>
       <Text style={styles.logoText}>Welcome To Save In Time</Text>
@@ -75,7 +74,7 @@ return (
   <Text style={styles.buttonText}>LOGIN</Text>
   </View>
   </TouchableOpacity>
- 
+
 </View>
       );
     }
@@ -131,7 +130,7 @@ return (
        backgroundColor: '#ffffff',
        borderRadius: 20,
        fontSize:17
-       
+
    },
    btn: {
        alignSelf: 'stretch',
