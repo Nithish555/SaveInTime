@@ -10,6 +10,7 @@ import {
   Picker,
   Navigator,
   Button,
+  Image
   //Header,
 } from 'react-native';
 
@@ -25,25 +26,13 @@ export default class on_going_treatments extends Component{
   };
 
 
-  constructor(){
-    super();
-    this.state={
-      actionText :'welcome to save'
-    }
-  }
-    onSettingsClick(){
-      console.log('settings clicked');
-    }
-  onActionSelected(){
-
-  }
 
 render(){
   var {navigate}=this.props.navigation;
 
 return (
 
-  <View>
+  <View style={{flex:1, backgroundColor:"#ffffff"}}>
   <View>
           <Header
             outerContainerStyles={styles.topMenu}
@@ -71,7 +60,54 @@ return (
         </View>
 
     <View style={styles.align}>
-     <Text style={styles.textDesign}>ongoing treatments</Text>
+    <View style={{flexDirection:'row'}}>
+    <View> 
+     <Text style={{fontSize:18,fontWeight:'bold'}}>Patient 1</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:8}}>Age : 50</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>Gender : Male</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>HeartAttack/Stroke : HeartAttack</Text>
+     </View>
+     <View style={{paddingLeft:80,paddingTop:27}} >
+    <Image style={{width:40,height:40,alignItems:'flex-end'}}
+          source={require('./circle.png')}/>
+      </View>
+    </View>
+    <View style={{flexDirection:'row',marginTop:20}}>
+    <View> 
+     <Text style={{fontSize:18,fontWeight:'bold'}}>Patient 2</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:8}}>Age : 60</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>Gender : Male</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>HeartAttack/Stroke :  Stroke         </Text>
+     </View>
+     <View style={{paddingLeft:80,paddingTop:27}} >
+    <Image style={{width:40,height:40,alignItems:'flex-end'}}
+          source={require('./red.png')}/>
+      </View>
+    </View>
+    <View style={{flexDirection:'row',marginTop:20}}>
+    <View> 
+     <Text style={{fontSize:18,fontWeight:'bold'}}>Patient 3</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:8}}>Age : 40</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>Gender : Female</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>HeartAttack/Stroke : HeartAttack</Text>
+     </View>
+     <View style={{paddingLeft:80,paddingTop:27}} >
+    <Image style={{width:40,height:40,alignItems:'flex-end'}}
+          source={require('./blue.png')}/>
+      </View>
+    </View>
+    <View style={{flexDirection:'row',marginTop:20}}>
+    <View> 
+     <Text style={{fontSize:18,fontWeight:'bold'}}>Patient 4</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:8}}>Age : 70</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>Gender : Female</Text>
+     <Text style={{paddingLeft:20,fontSize:15,paddingTop:4}}>HeartAttack/Stroke :  Stroke         </Text>
+     </View>
+     <View style={{paddingLeft:80,paddingTop:27}} >
+    <Image style={{width:40,height:40,alignItems:'flex-end'}}
+          source={require('./red.png')}/>
+      </View>
+    </View>
     </View>
   </View>
 
@@ -79,15 +115,7 @@ return (
     }
   }
 
-  const toolbarActions =[
-
-     //{title: 'Settings', icon: require('./menu.png'), show:'always'},
-    {title:'action1'},
-    {title:'action2'},
-    {title:'action3'},
-    {title:'action4'},
-    //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
-  ]
+  
 
 
 
@@ -127,7 +155,6 @@ return (
     align:{
       padding :10,
       backgroundColor:'white',
-      flexDirection : 'column',
 
 
     },
