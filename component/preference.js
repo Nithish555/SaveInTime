@@ -53,8 +53,8 @@ export default class preference extends Component{
   static navigationOption={
     title:'preference',
   };
- 
-render(){ 
+
+render(){
   var {navigate}=this.props.navigation;
 
 return (
@@ -89,13 +89,13 @@ return (
     <View style={styles.align}>
        <View style={{flexDirection:'row'}}>
      <Image style={{width:150,height:150}}
-          source={require('./logo.png')}/>
+          source={require('try_camera/component/doctor.png')}/>
       <View>
-      <Text style={{paddingTop:30,
+      <Text style={{paddingTop:30,paddingLeft:30,
       color: 'black',fontSize:20}}>Dr Nick Tesla</Text>
       <Text style={{
-      color: 'black',fontSize:13}}>mbbs</Text>
-      
+      color: 'black',fontSize:13,paddingLeft:30}}>mbbs</Text>
+
       </View>
      </View>
         <Text style={styles.title}>Preference List</Text>
@@ -125,9 +125,9 @@ class Row extends Component {
 
     constructor(props) {
       super(props);
-  
+
       this._active = new Animated.Value(0);
-  
+
       this._style = {
         ...Platform.select({
           ios: {
@@ -142,7 +142,7 @@ class Row extends Component {
               outputRange: [2, 10],
             }),
           },
-  
+
           android: {
             transform: [{
               scale: this._active.interpolate({
@@ -158,7 +158,7 @@ class Row extends Component {
         })
       };
     }
-  
+
     componentWillReceiveProps(nextProps) {
       if (this.props.active !== nextProps.active) {
         Animated.timing(this._active, {
@@ -168,10 +168,10 @@ class Row extends Component {
         }).start();
       }
     }
-  
+
     render() {
      const {data, active} = this.props;
-  
+
       return (
         <Animated.View style={[
           styles.row,
@@ -183,7 +183,7 @@ class Row extends Component {
       );
     }
   }
-  
+
 
 
 
@@ -203,7 +203,7 @@ class Row extends Component {
           paddingTop: 20,
         },
       }),
-      
+
     },
 
     toolBar:{
@@ -277,38 +277,38 @@ class Row extends Component {
       alignContent:'stretch',
       //alignSelf:'auto',
       //alignItems:'center',
-  
+
       ...Platform.select({
         ios: {
           //paddingTop: 20,
         },
       }),
     },
-  
+
     title: {
       fontSize: 20,
       paddingVertical: 20,
       color: '#999999',
     },
-  
+
     list: {
      //flex: 1,
     },
-  
+
     contentContainer: {
       width: window.width,
-  
+
       ...Platform.select({
         ios: {
           paddingHorizontal: 30,
         },
-  
+
         android: {
           paddingHorizontal: 0,
         }
       })
     },
-  
+
     row: {
      flexDirection: 'row',
       alignItems: 'center',
@@ -319,8 +319,8 @@ class Row extends Component {
       marginTop: 15,
       marginBottom: 7,
       borderRadius: 4,
-  
-  
+
+
       ...Platform.select({
         ios: {
           width: window.width - 30 * 2,
@@ -329,7 +329,7 @@ class Row extends Component {
           shadowOffset: {height: 2, width: 2},
           shadowRadius: 2,
         },
-  
+
         android: {
           width: window.width - 40 * 2,
           elevation: 0,
@@ -337,14 +337,14 @@ class Row extends Component {
         },
       })
     },
-  
+
     image: {
       width: 50,
       height: 50,
       marginRight: 30,
       borderRadius: 25,
     },
-  
+
     text: {
       fontSize: 16,
       color: '#222222',

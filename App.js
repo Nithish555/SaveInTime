@@ -16,16 +16,16 @@ import {
 
 import { StackNavigator,DrawerNavigator ,createDrawerNavigator} from 'react-navigation';
 
-import login from 'SaveInLife/component/login.js';
-import other from 'SaveInLife/component/disease/other.js';
-import stroke from 'SaveInLife/component/disease/stroke.js';
-import heart from 'SaveInLife/component/disease/heart.js';
-import chat from 'SaveInLife/component/chat.js';
-import review_history from 'SaveInLife/component/review.js';
-import on_going_treatments from 'SaveInLife/component/request.js';
-import preference from 'SaveInLife/component/preference.js';
-import signout from 'SaveInLife/component/signout.js';
-import specialist from 'SaveInLife/component/disease/specialist.js';
+import login from './component/login.js';
+import other from './component/disease/other.js';
+import stroke from './component/disease/stroke.js';
+import heart from './component/disease/heart.js';
+import chat from './component/chat.js';
+import review_history from './component/review.js';
+import on_going_treatments from './component/request.js';
+import preference from './component/preference.js';
+import signout from './component/signout.js';
+import specialist from './component/disease/specialist.js';
 
 const myDrawer =DrawerNavigator({
   login:{screen: login},

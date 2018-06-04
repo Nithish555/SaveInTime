@@ -13,7 +13,7 @@ import {
   Image
   //Header,
 } from 'react-native';
-import tabnav from './disease/tabnav'
+//import tabnav from './disease/tabnav'
 
 const util=require('util');
 
@@ -23,7 +23,7 @@ export default class login extends Component{
   static navigationOption={
     title:'login',
   };
-  
+
   state={
     username: '',
     password: '',
@@ -50,7 +50,7 @@ return (
 
   <View  style ={ styles.container}>
 
-  
+
   <Image style={{width:150,height:145}}
        source={require('./img.png')}/>
       <Text style={styles.logoText}>Welcome To Save In Time</Text>
@@ -75,7 +75,7 @@ return (
   <Text style={styles.buttonText}>LOGIN</Text>
   </View>
   </TouchableOpacity>
- 
+
 </View>
       );
     }
@@ -131,7 +131,7 @@ return (
        backgroundColor: '#ffffff',
        borderRadius: 20,
        fontSize:17
-       
+
    },
    btn: {
        alignSelf: 'stretch',
