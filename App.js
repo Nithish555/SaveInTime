@@ -16,28 +16,33 @@ import {
 
 import { StackNavigator,DrawerNavigator ,createDrawerNavigator} from 'react-navigation';
 
-import login from 'SaveInLife/component/login.js';
-import other from 'SaveInLife/component/disease/other.js';
-import stroke from 'SaveInLife/component/disease/stroke.js';
-import heart from 'SaveInLife/component/disease/heart.js';
-import chat from 'SaveInLife/component/chat.js';
-import review_history from 'SaveInLife/component/review.js';
-import on_going_treatments from 'SaveInLife/component/request.js';
-import preference from 'SaveInLife/component/preference.js';
-import signout from 'SaveInLife/component/signout.js';
-import specialist from 'SaveInLife/component/disease/specialist.js';
-
+import login from './component/login.js';
+import other from './component/disease/other.js';
+import stroke from './component/disease/stroke.js';
+import heart from './component/disease/heart.js';
+import chat from './component/chat.js';
+import review_history from './component/review.js';
+import on_going_treatments from './component/request.js';
+import preference from './component/preference.js';
+import signout from './component/signout.js';
+import specialist from './component/disease/specialist.js';
 
 const myDrawer =DrawerNavigator({
-  'Login' :{screen: login},
-  'Ongoing Treatments':{screen:on_going_treatments},
-  'Review History':{screen:review_history},
-  'Preferences':{screen:preference},
-  'Chat':{screen: chat},
-  'Sign Out':{screen:signout},
+  login:{screen: login},
+  on_going_treatments:{screen:on_going_treatments},
+  review_history:{screen:review_history},
+  preference:{screen:preference},
+   chat:{screen: chat},
+   signout:{screen:signout},
+   //heart:{screen: heart},
+   //home:{screen:mydrawer},
+   //other:{screen: other},
+   //home:{screen:mydrawer},
+   //stroke:{screen: stroke},
+
 },{
 drawerPosition:'left',
-drawerWidth:500,
+drawerWidth:300,
 contentOptions:{
     activeTintColor:'red'
 }});

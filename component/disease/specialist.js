@@ -24,11 +24,11 @@ import others from './other'
 import { Dropdown } from 'react-native-material-dropdown';
 import { Header, Icon } from 'react-native-elements';
 import {Container,Content,Left, Body} from 'native-base';
-import chat from 'SaveInLife/component/chat.js';
-import review_history from 'SaveInLife/component/review.js';
-import on_going_treatments from 'SaveInLife/component/request.js';
-import preference from 'SaveInLife/component/preference.js';
-import signout from 'SaveInLife/component/signout.js';
+import chat from 'try_camera/component/chat.js';
+import review_history from 'try_camera/component/review.js';
+import on_going_treatments from 'try_camera/component/request.js';
+import preference from 'try_camera/component/preference.js';
+import signout from 'try_camera/component/signout.js';
 
 const util=require('util');
 
@@ -340,7 +340,7 @@ return (
   });
   const CustomDrawerContentComponent = (props) => (
     <View>
-    <View style ={{height: 150,width:500,paddingLeft:10,backgroundColor:'white'}}>
+    <View style ={{height: 150,width:300,paddingLeft:60,backgroundColor:'white'}}>
 
         <Image
           style={styles.drawerImage}
@@ -352,10 +352,10 @@ return (
      </View>
   )
   const MyApp = DrawerNavigator({
-     'Home' :{screen:specialist},
+     Home :{screen:specialist},
    // 'On Going Treatments':{screen:on_going_treatments},
     //'Review History':{screen:review_history},
-     'Preferences':{screen:preference},
+     Preference:{screen:preference},
     //Chat:{screen: chat},
     'Log Out':{screen:signout}
    },{
@@ -364,7 +364,7 @@ return (
      drawerOpenRoute:'DrawerOpen',
      drawerCloseRoute:'DrawerClose',
      drawerToggleRoute:'DrawerToggle',
-     drawerWidth:400,
+     drawerWidth:220,
      drawerBackgroundColor: "#404040",
      contentOptions: {
       labelStyle: {
@@ -373,7 +373,7 @@ return (
     }
    },
    {
-   drawerWidth:400,
+   drawerWidth:150,
    drawerBackgroundColor: "#404040",
    contentOptions: {
     labelStyle: {

@@ -24,13 +24,14 @@ import others from './other'
 import { Dropdown } from 'react-native-material-dropdown';
 import { Header, Icon,ButtonGroup } from 'react-native-elements';
 import {Container,Content,Left, Body} from 'native-base';
-import chat from 'SaveInLife/component/chat.js';
-import review_history from 'SaveInLife/component/review.js';
-import on_going_treatments from 'SaveInLife/component/request.js';
-import preference from 'SaveInLife/component/preference.js';
-import signout from 'SaveInLife/component/signout.js';
+import chat from 'try_camera/component/chat.js';
+import review_history from 'try_camera/component/review.js';
+import on_going_treatments from 'try_camera/component/request.js';
+import preference from 'try_camera/component/preference.js';
+import signout from 'try_camera/component/signout.js';
 import SwitchSelector from 'react-native-switch-selector';
 const util=require('util');
+
 const options1 = [
   { label: 'Low', value: '1' },
   { label: 'Normal', value: '1.5' },
@@ -38,6 +39,19 @@ const options1 = [
   { label: 'Critical', value: '2.5' },
 ];
 
+
+var ImagePicker = require('react-native-image-picker');
+
+var options = {
+  title: 'choose',
+//  customButtons: [
+  //  {name: 'fb', title: 'Choose Photo from Facebook'},
+  //],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  }
+};
 const { width, height } = Dimensions.get('window');
  class heart extends Component{
 
@@ -102,12 +116,11 @@ return (
               style: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
             }}
             rightComponent={
-              <Icon
-                name="search"
-                color='#fff'
-                onPress={() => console.log('pressed')}
-                //underlayColor={'#64b5f6'}
-              />
+
+
+
+                <Image style={{width:30,height:30}}
+                     source={require('try_camera/component/doctor.png')}/>
             }
             leftComponent={
               <Icon
@@ -139,7 +152,7 @@ return (
    />
    </View>
    <View style ={styles.top2}>
-   <TouchableOpacity onPress={this._onPressButton}>
+   <TouchableOpacity onPress ={this.show.bind(this)}>
             <View style={styles.button}>
             <Text style={styles.buttonText}>upload ECG</Text>
             </View>
@@ -174,6 +187,32 @@ return (
 </View>
       );
     }
+    show(){
+      ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        let source = { uri: response.uri };
+
+        // You can also display the image using data:
+        //let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({
+          avatarSource: source
+        });
+      }
+    });
+
+    }
   }
 
   const toolbarActions =[
@@ -186,6 +225,47 @@ return (
     //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
   ]
 
+  /*const MyApp = TabNavigator({
+    HEART: {
+      screen: heart,
+    },
+    STROKE: {
+      screen: stroke,
+    },
+    OTHERS: {
+      screen: others,
+      navigationOptions : {
+        //tabBarLabel: 'MyHome',
+        // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+        tabBarIcon: ({tintColor}) => (
+          <Icon  raised
+          name='checkbox-blank'
+          type='material-community' style={{color:'grey'}} />
+        ),
+      }
+    },
+  }, {
+      tabBarComponent:TabBarBottom,
+      tabBarPosition: 'bottom',
+      animationEnabled: true,
+      swipeEnabled:true,
+       tabBarOptions: {
+         activeTintColor: 'red',
+         showIcon:true,
+        // inactiveTintColor:'grey',=
+
+         style: {
+          backgroundColor: 'white',
+
+        },
+        labelStyle:{
+          fontSize:15,
+          fontWeight:'bold',
+          //color:"#000000"
+        }
+       },
+
+    });*/
     const abc = createBottomTabNavigator({
       HEART: heart,
       STROKE: stroke,
@@ -381,11 +461,11 @@ return (
   });
   const CustomDrawerContentComponent = (props) => (
     <View>
-    <View style ={{height: 150,width:500,paddingLeft:10,backgroundColor:'white'}}>
+    <View style ={{height: 150,width:300,paddingLeft:60,backgroundColor:'white'}}>
 
         <Image
           style={styles.drawerImage}
-          source={require('../logo.png')}
+          source={require('../doctor.png')}
           />
           <Text style={{ fontWeight:'bold'}}>Dr. Nick Tesla</Text>
     </View>
@@ -394,9 +474,9 @@ return (
   )
   const MyApp = DrawerNavigator({
     'Requset a Review' :{screen:abc},
-    'Ongoing Treatments':{screen:on_going_treatments},
+    'On Going Treatments':{screen:on_going_treatments},
     'Review History':{screen:review_history},
-     'Preferences':{screen:preference},
+     Preference:{screen:preference},
     //Chat:{screen: chat},
      'Log Out':{screen:signout}
    },{
@@ -405,7 +485,7 @@ return (
      drawerOpenRoute:'DrawerOpen',
      drawerCloseRoute:'DrawerClose',
      drawerToggleRoute:'DrawerToggle',
-     drawerWidth:400,
+     drawerWidth:220,
      drawerBackgroundColor: "#404040",
      contentOptions: {
       labelStyle: {
@@ -414,12 +494,13 @@ return (
     }
    },
    {
-   drawerWidth:400,
+   drawerWidth:150,
    drawerBackgroundColor: "#404040",
    contentOptions: {
     labelStyle: {
       color: 'white',
     },
+
     activeTintColor:'red'
   }
    },

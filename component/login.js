@@ -13,6 +13,7 @@ import {
   Image
   //Header,
 } from 'react-native';
+//import tabnav from './disease/tabnav'
 
 const util=require('util');
 
@@ -32,10 +33,10 @@ export default class login extends Component{
   }
   submitForm = () => {
     const {username , password} = this.state
-    if(this.state.username == "RP"){
+    if(this.state.username == "Nithish"){
        this.props.navigation.navigate("heart",{})
 }
-else if(this.state.username == "RK"){
+else if(this.state.username == "Nehal"){
   this.props.navigation.navigate("specialist",{})
 }
   }
