@@ -26,7 +26,7 @@ import on_going_treatments from './component/request.js';
 import preference from './component/preference.js';
 import signout from './component/signout.js';
 import specialist from './component/disease/specialist.js';
-
+import Screen1 from './Screen1';
 const myDrawer =DrawerNavigator({
   login:{screen: login},
   on_going_treatments:{screen:on_going_treatments},
@@ -75,6 +75,7 @@ signout:{screen:signout},
 on_going_treatments:{screen:on_going_treatments},
 chat:{screen: chat},
 specialist:{screen:specialist},
+Screen1:{screen:Screen1},
 },
 {
   headerMode: 'none'
