@@ -18,7 +18,19 @@ import {
 import MultiStep from 'react-native-multistep-wizard';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import { Dropdown } from 'react-native-material-dropdown';
+import { StackNavigator, TabNavigator,TabBarBottom,TabView,DrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
+import chat from './component/chat.js';
+import review_history from './component/review.js';
+import on_going_treatments from './component/request.js';
+import preference from './component/preference.js';
+import signout from './component/signout.js';
+import specialist from './component/disease/specialist.js';
+
 type Props = {};
+
+const util=require('util');
+
 export default class StepThree extends Component<Props> {
   constructor() {
     super();
@@ -26,6 +38,10 @@ export default class StepThree extends Component<Props> {
         text:" ",
         variable:true
     }
+}
+nextPreprocess = () => {
+  this.props.saveState(0,{key:'value'})
+  this.props.nextFn()
 }
   previousPreprocess = () =>{
     this.props.prevFn()
@@ -42,11 +58,11 @@ export default class StepThree extends Component<Props> {
       this.setState({variable:true});
     }
   }
-  True = () =>{
-
+  submitForm = () => {
+    //this.props.navigation.navigate("on_going_treatments",{})
   }
-  
   render() {
+   //const {navigate}=this.props.navigation.navigate;
     let data = [{
       value: 'Dr.Nick Tesla',
     }, {
@@ -74,7 +90,9 @@ export default class StepThree extends Component<Props> {
  
         <RadioButton value={'item2'}>
           <Text style={styles.baseText2}>Select From List</Text>
-          <View style={{width:150}}>
+        </RadioButton>
+      </RadioGroup>
+      <View style={{width:300,paddingLeft:16}}>
           <Dropdown
         label='List'
         data={data}
@@ -82,19 +100,24 @@ export default class StepThree extends Component<Props> {
         baseColor={'black'}
         fontSize={20}
          />
-         </View>
-        </RadioButton>
-      </RadioGroup>
+        </View>
       </View>
-      <View style={{flexDirection:'row'}}>
-      <View style={{alignItems:'flex-start',marginLeft:20}}>
+ <View style={{flexDirection:'row',paddingTop:16}}>
+  <View style={{paddingLeft:10}}>
         <TouchableOpacity onPress={ this.previousPreprocess } >
-        <View style={styles.button}>
+        <View style={styles.button1}>
             <Text style={styles.buttonText}>Prev</Text>
           </View>
         </TouchableOpacity>
         </View>
+  <View style={{alignItems:'flex-end',paddingLeft:80,marginRight:20}}>
+        <TouchableOpacity onPress={ this.nextPreprocess } >   
+        <View style={styles.button}>
+            <Text style={styles.buttonText}>Submit Review</Text>
+            </View>
+        </TouchableOpacity>
       </View>
+    </View>
       </View>
     );
   }
@@ -118,31 +141,47 @@ const styles = StyleSheet.create({
   },
   baseText:{
     fontSize:20,
-    fontWeight:'bold',
+   // fontWeight:'bold',
     padding:13,
-    textAlign:'center'
+    textAlign:'center',
+    color:'#000000'
   },
   baseText1:{
     fontSize:20,
-    fontWeight:'bold',
+   // fontWeight:'bold',
     padding:20,
+    color:'#000000'
   },
   baseText2:{
     fontSize:20,
+    color:'#000000'
   },
   button: {
-    marginTop:50,
-    width: 125,
+    marginTop:10,
+    marginBottom: 10,
+    width: 160,
+    alignItems: 'center',
     backgroundColor: '#ED116F',
-    marginRight:25,
+    marginLeft:50,
     borderRadius:5,
     alignSelf: 'auto',
-    alignItems:'center',
-
+    alignItems:'center'
+  },
+  button1: {
+    marginTop:10,
+    marginBottom: 10,
+    width: 80,
+    alignItems: 'center',
+    backgroundColor: '#ED116F',
+    marginLeft:10,
+    borderRadius:5,
+    alignSelf: 'auto',
+    alignItems:'center'
   },
   buttonText: {
     padding: 20,
     color: '#ffffff',
     fontSize:18
   },
+
 });

@@ -26,7 +26,10 @@ import on_going_treatments from './component/request.js';
 import preference from './component/preference.js';
 import signout from './component/signout.js';
 import specialist from './component/disease/specialist.js';
-import Screen1 from './Screen1';
+import Screen1 from './Screen1.js';
+import StepOne from './StepOne.js';
+import StepTwo from './StepTwo.js';
+import StepThree from './StepThree.js';
 const myDrawer =DrawerNavigator({
   login:{screen: login},
   on_going_treatments:{screen:on_going_treatments},
@@ -65,16 +68,6 @@ const Navigation =StackNavigator({
 //login:{screen: login},
 
 login:{screen: login},
-//MyApp:{screen:MyApp},
-heart:{screen: heart},
-stroke:{screen: stroke},
-other:{screen: other},
-review_history:{screen:review_history},
-preference:{screen:preference},
-signout:{screen:signout},
-on_going_treatments:{screen:on_going_treatments},
-chat:{screen: chat},
-specialist:{screen:specialist},
 Screen1:{screen:Screen1},
 },
 {

@@ -79,8 +79,7 @@ export default class StepOne extends Component<Props> {
     return (
       
       <View style={styles.container}>
-        <Text style={styles.baseText}>Welcome,</Text>
-        <Text style={styles.baseText1}>Dr.Nick Tesla</Text>
+        <Text style={styles.baseText}>Welcome, Dr.Nick Tesla</Text>
         <Text style={styles.baseText2}>What are you looking to report?</Text>
         <ButtonGroup
         onPress={this.updateIndex}
@@ -129,24 +128,27 @@ const styles = StyleSheet.create({
   },
   baseText:{
     fontSize:20,
-    fontWeight:'bold',
-    padding:13
+   // fontWeight:'900',
+    padding:13,
+    color:'#000000',
   },
   baseText1:{
     fontSize:18,
-    paddingLeft:50
+    paddingLeft:50,
+    color:'#000000',
   },
   baseText2:{
     fontSize:20,
-    fontWeight:'bold',
+    //fontWeight:'bold',
     paddingLeft:20,
     paddingRight:20,
-    paddingTop:50,
-    padding:20
+    paddingTop:30,
+    padding:20,
+    color:'#000000',
   },
   button: {
     marginTop:50,
-    width: 125,
+    width: 80,
     backgroundColor: '#ED116F',
     marginRight:25,
     borderRadius:5,

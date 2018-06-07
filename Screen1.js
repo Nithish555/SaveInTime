@@ -21,11 +21,20 @@ import {
 import { Header, Icon,ButtonGroup } from 'react-native-elements';
 import { StackNavigator, TabNavigator,TabBarBottom,TabView,DrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation';
+import chat from './component/chat.js';
+import review_history from './component/review.js';
+import on_going_treatments from './component/request.js';
+import preference from './component/preference.js';
+import signout from './component/signout.js';
+import specialist from './component/disease/specialist.js';
 const steps = [
   {name: 'StepOne', component: <StepOne/>},
   {name: 'StepTwo', component: <StepTwo/>},
   {name: 'StepThree', component: <StepThree/>},
 ];
+
+const util=require('util');
+
 class App extends Component<Props> {
   state = {
     index: 0
@@ -35,9 +44,10 @@ class App extends Component<Props> {
   }
   finish = () => {
     //code to be executed when wizard is finished
-            
+            this.props.navigation.navigate('on_going_treatments',{})
         }
   render() {
+    var {navigate}=this.props.navigation;
     return (
       <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.container}>
@@ -49,12 +59,8 @@ class App extends Component<Props> {
               style: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
             }}
             rightComponent={
-              <Icon
-                name="search"
-                color='#fff'
-                onPress={() => console.log('pressed')}
-                //underlayColor={'#64b5f6'}
-              />
+              <Image style={{width:30,height:30}}
+                                     source={require('./doctor.png')}/>
             }
             leftComponent={
               <Icon
@@ -115,9 +121,13 @@ const CustomDrawerContentComponent = (props) => (
    </View>
 )
 const MyApp = DrawerNavigator({
-    Home:{screen:App},
+    'Request a Review':{screen:App},
+    'Ongoing Treatments':{screen:on_going_treatments},
+    'Review History':{screen:review_history},
+    'Preferences':{screen:preference},
+    'Logout':{screen:signout}
  },{
-   initialRouteName:'Home',
+   initialRouteName:'Request a Review',
    contentComponent: CustomDrawerContentComponent,
    drawerOpenRoute:'DrawerOpen',
    drawerCloseRoute:'DrawerClose',
@@ -128,23 +138,39 @@ const MyApp = DrawerNavigator({
     labelStyle: {
       color: 'white',
     },
+    activeTintColor:'red' 
   }
  },
- {
- drawerWidth:150,
- drawerBackgroundColor: "#404040",
- contentOptions: {
-  labelStyle: {
-    color: 'white',
-  },
-  
-  activeTintColor:'red'
-}
- },
+ 
  {
    navigationOptions: ({ navigation }) => ({
      headerLeft : <leftComponent navigate={navigation.navigate} />,
    })
  }
  );
-export default MyApp;
+ const Navigation =StackNavigator({
+
+  //home:{screen:mydrawer}
+  //login:{screen: login},
+  MyApp:{screen:MyApp},
+  review_history:{screen:review_history},
+ preference:{screen:preference},
+ signout:{screen:signout},
+ on_going_treatments:{screen:on_going_treatments},
+ chat:{screen: chat},
+ specialist:{screen:specialist},
+ Screen1:{screen:App},
+  
+  },
+  {
+    headerMode: 'none'
+  },
+  {
+  navigationOptions: ({ navigation }) => ({
+    headerLeft : <leftComponent navigate={navigation.navigate} />,
+  }),
+  // chat:{screen:chat},
+  }
+  
+  );
+export default Navigation;

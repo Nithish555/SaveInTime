@@ -12,6 +12,7 @@ import {
   Button,
   Image,
   Dimensions,
+  ScrollView
   
   //Header,
 } from 'react-native';
@@ -65,7 +66,7 @@ export default class StepTwo extends Component<Props> {
       },];
     return (
       
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.top}>
                      <TextInput
                     style={styles.textInput} placeholder='Name'
@@ -86,7 +87,9 @@ export default class StepTwo extends Component<Props> {
         label='Sex'
         data={data1} 
         baseColor={'black'}
+        labelColor={'#000000'}
         fontSize={18}
+        labelStyle={fontWeight='bold'}
          />
          </View>
             </View>
@@ -96,7 +99,7 @@ export default class StepTwo extends Component<Props> {
     onColor='green'
     offColor='red'
     label='Pregnant'
-    labelStyle={{color: 'black',fontWeight: '900',fontSize:17,paddingHorizontal:50}}
+    labelStyle={{color:'#000000',fontSize:17,paddingLeft:10,paddingRight:230}}
     size='medium'
     onToggle={ (isOn) => console.log('changed to : ', isOn) }
 />
@@ -116,14 +119,14 @@ export default class StepTwo extends Component<Props> {
     onColor='green'
     offColor='red'
     label='ECG Taken'
-    labelStyle={{color: 'black',fontWeight: '900',fontSize:17,paddingHorizontal:50}}
+    labelStyle={{color: '#000000',fontSize:17,paddingLeft:10,paddingRight:210}}
     size='medium'
     onToggle={ this.ShowHideTextComponentView }
 />
 </View>
 {this.state.status ?<View style ={styles.top3}>
    <TouchableOpacity>
-            <View style={styles.button}>
+            <View style={styles.button2}>
             <Text style={styles.buttonText}>upload ECG</Text>
             </View>
             </TouchableOpacity>
@@ -134,26 +137,28 @@ export default class StepTwo extends Component<Props> {
     onColor='green'
     offColor='red'
     label='Chest Discomfort'
-    labelStyle={{color: 'black',fontWeight: '900',fontSize:17,paddingHorizontal:50}}
+    labelStyle={{color: '#000000',fontSize:17,paddingLeft:10,paddingRight:160}}
     size='medium'
     onToggle={ (isOn) => console.log('changed to : ', isOn) }
 />
   </View>
-  <View>
+  <View style={{flexDirection:'row',paddingTop:16}}>
+  <View style={{paddingLeft:10}}>
         <TouchableOpacity onPress={ this.previousPreprocess } >
         <View style={styles.button1}>
             <Text style={styles.buttonText}>Prev</Text>
           </View>
         </TouchableOpacity>
         </View>
-  <View style={{alignItems:'flex-end',marginRight:20}}>
+  <View style={{alignItems:'flex-end',paddingLeft:145,marginRight:20}}>
         <TouchableOpacity onPress={ this.nextPreprocess } >   
         <View style={styles.button}>
             <Text style={styles.buttonText}>Next</Text>
             </View>
         </TouchableOpacity>
       </View>
-</View>
+    </View>
+</ScrollView>
     );
   }
   
@@ -184,13 +189,15 @@ const styles = StyleSheet.create({
     //paddingHorizontal:30 ,
     marginTop:10,
     //marginBottom: 4,
-    paddingLeft:30, 
+    //paddingLeft:30, 
     backgroundColor: '#ffffff',
     //borderRadius: 20,
     fontSize:17,
     marginLeft:15,
     marginRight:15,
-    width:250
+    width:250,
+    color:'#000000',
+   // fontWeight:'bold'
 },
 textInput1: {
   //alignSelf: 'stretch',
@@ -199,18 +206,21 @@ textInput1: {
   //paddingHorizontal:30 ,
   //marginTop:10,
   //marginBottom: 4,
-  paddingLeft:30, 
+  //paddingLeft:30, 
   backgroundColor: '#ffffff',
   //borderRadius: 20,
   fontSize:17,
   marginLeft:15,
   marginRight:15,
-  width:250
+  width:250,
+  color:'#000000',
+ // fontWeight:'bold'
 },
+
 button: {
   marginTop:10,
   marginBottom: 10,
-  width: 150,
+  width: 80,
   alignItems: 'center',
   backgroundColor: '#ED116F',
   marginLeft:50,
@@ -221,10 +231,21 @@ button: {
 button1: {
   marginTop:10,
   marginBottom: 10,
-  width: 150,
+  width: 80,
   alignItems: 'center',
   backgroundColor: '#ED116F',
   marginLeft:10,
+  borderRadius:5,
+  alignSelf: 'auto',
+  alignItems:'center'
+},
+button2: {
+  marginTop:10,
+  marginBottom: 10,
+  width: 140,
+  alignItems: 'center',
+  backgroundColor: '#ED116F',
+  marginLeft:50,
   borderRadius:5,
   alignSelf: 'auto',
   alignItems:'center'
@@ -254,9 +275,9 @@ top1:{
 top2:{
   height:Dimensions.get('window').height/100*5,
   //position:'relative',
-  
+  alignItems:'flex-start',
    marginTop:25,
-   alignSelf:'stretch',
+   alignSelf:'flex-start',
  //justifyContent:'space-around',
 
 },
