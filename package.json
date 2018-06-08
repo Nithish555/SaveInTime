@@ -1,5 +1,5 @@
 {
-  "name": "try_camera",
+  "name": "SaveInLife",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,33 +7,26 @@
     "test": "jest"
   },
   "dependencies": {
+    "fs": "0.0.1-security",
     "native-base": "^2.4.5",
-    "prop-types": "^15.6.0",
+    "net": "^1.0.2",
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-native-base": "^1.1.0",
-    "react-native-camera": "^0.6.0",
-    "react-native-camera-roll-picker": "^1.2.3",
     "react-native-elements": "^0.19.1",
-    "react-native-fs": "^2.9.12",
-    "react-native-image-picker": "^0.26.10",
-    "react-native-image-resizer": "^1.0.0",
     "react-native-material-dropdown": "^0.11.1",
-    "react-native-photo-upload": "^1.2.0",
-    "react-native-select-lists": "^1.0.1",
     "react-native-sortable-list": "0.0.22",
-    "react-native-svg-cli": "^1.0.4",
-    "react-native-switch-selector": "^1.1.7",
-    "react-native-util": "^1.0.2",
+    "react-native-switch-selector": "^1.1.6",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.0.4",
+    "tls": "0.0.1",
     "util": "*"
   },
   "devDependencies": {
-    "babel-jest": "23.0.1",
+    "babel-jest": "23.0.0",
     "babel-preset-react-native": "4.0.0",
-    "jest": "23.1.0",
+    "jest": "23.0.0",
     "react-native-select-list": "^1.0.5",
+    "react-native-select-lists": "^1.0.1",
     "react-test-renderer": "16.3.1"
   },
   "jest": {

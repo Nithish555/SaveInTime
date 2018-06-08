@@ -12,7 +12,7 @@ import {
   Button,
   Image,
   Dimensions,
-
+  
   //Header,
 } from 'react-native';
 import { StackNavigator, TabNavigator,TabBarBottom,TabView,DrawerNavigator,DrawerItems,SafeAreaView} from 'react-navigation';
@@ -24,14 +24,13 @@ import others from './other'
 import { Dropdown } from 'react-native-material-dropdown';
 import { Header, Icon,ButtonGroup } from 'react-native-elements';
 import {Container,Content,Left, Body} from 'native-base';
-import chat from 'try_camera/component/chat.js';
-import review_history from 'try_camera/component/review.js';
-import on_going_treatments from 'try_camera/component/request.js';
-import preference from 'try_camera/component/preference.js';
-import signout from 'try_camera/component/signout.js';
+import chat from 'SaveInLife/component/chat.js';
+import review_history from 'SaveInLife/component/review.js';
+import on_going_treatments from 'SaveInLife/component/request.js';
+import preference from 'SaveInLife/component/preference.js';
+import signout from 'SaveInLife/component/signout.js';
 import SwitchSelector from 'react-native-switch-selector';
 const util=require('util');
-
 const options1 = [
   { label: 'Low', value: '1' },
   { label: 'Normal', value: '1.5' },
@@ -39,19 +38,6 @@ const options1 = [
   { label: 'Critical', value: '2.5' },
 ];
 
-
-var ImagePicker = require('react-native-image-picker');
-
-var options = {
-  title: 'choose',
-//  customButtons: [
-  //  {name: 'fb', title: 'Choose Photo from Facebook'},
-  //],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  }
-};
 const { width, height } = Dimensions.get('window');
  class heart extends Component{
 
@@ -77,7 +63,7 @@ const { width, height } = Dimensions.get('window');
 
   }
   select = () =>{
-
+      
     if(this.state.index==2)
     {
       return "orange"
@@ -94,7 +80,7 @@ render(){
     value: 'Urgent',
   }, {
     value: 'Normal',
-  },
+  }, 
     ];
 
 return (
@@ -116,11 +102,12 @@ return (
               style: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
             }}
             rightComponent={
-
-
-
-                <Image style={{width:30,height:30}}
-                     source={require('try_camera/component/doctor.png')}/>
+              <Icon
+                name="search"
+                color='#fff'
+                onPress={() => console.log('pressed')}
+                //underlayColor={'#64b5f6'}
+              />
             }
             leftComponent={
               <Icon
@@ -139,7 +126,7 @@ return (
     onChangeText={(username) => this.setState({username})}
     underlineColorAndroid='#000000'
     placeholderTextColor='#000000'
-   />
+   /> 
    </View>
    <View style={styles.top}>
 
@@ -152,7 +139,7 @@ return (
    />
    </View>
    <View style ={styles.top2}>
-   <TouchableOpacity onPress ={this.show.bind(this)}>
+   <TouchableOpacity onPress={this._onPressButton}>
             <View style={styles.button}>
             <Text style={styles.buttonText}>upload ECG</Text>
             </View>
@@ -187,32 +174,6 @@ return (
 </View>
       );
     }
-    show(){
-      ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      }
-      else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      }
-      else {
-        let source = { uri: response.uri };
-
-        // You can also display the image using data:
-        //let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({
-          avatarSource: source
-        });
-      }
-    });
-
-    }
   }
 
   const toolbarActions =[
@@ -224,7 +185,7 @@ return (
     {title:'action4'},
     //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
   ]
-
+ 
   /*const MyApp = TabNavigator({
     HEART: {
       screen: heart,
@@ -256,7 +217,7 @@ return (
 
          style: {
           backgroundColor: 'white',
-
+      
         },
         labelStyle:{
           fontSize:15,
@@ -264,7 +225,7 @@ return (
           //color:"#000000"
         }
        },
-
+       
     });*/
     const abc = createBottomTabNavigator({
       HEART: heart,
@@ -275,12 +236,12 @@ return (
     navigationOptions : {
       //tabBarLabel: 'MyHome',
       // Note: By default the icon is only shown on iOS. Search the showIcon option below.
-      tabBarIcon: ({tintColor}) =>
+      tabBarIcon: ({tintColor}) => 
         <Icon
         name='square'
-        type='font-awesome'
+        type='font-awesome' 
 	      color={tintColor} />
-
+      
     },
   tabBarComponent:TabView.TabBarBottom,
   tabBarPosition: 'bottom',
@@ -291,7 +252,7 @@ return (
        showIcon:true,
        style: {
         backgroundColor: '#ffffff',
-
+    
       },
       labelStyle:{
         fontSize:15,
@@ -309,7 +270,7 @@ return (
       alignContent:'stretch',
       alignSelf:'auto',
       alignItems:'stretch'
-
+      
     },
 
     toolBar:{
@@ -384,19 +345,19 @@ return (
     baseText:{
       fontSize:18,
       marginTop:25,
-
+      
     },
     baseText1:{
       fontSize:18,
       marginTop:15,
-
-
+      
+      
     },
     baseText2:{
       fontSize:18,
       marginBottom:8,
       marginTop:8
-
+      
     },
 
     textInput: {
@@ -411,7 +372,7 @@ return (
       fontSize:17,
       marginLeft:15,
       marginRight:15
-
+      
   },
   topMenu: {
     height: 53,
@@ -462,10 +423,10 @@ return (
   const CustomDrawerContentComponent = (props) => (
     <View>
     <View style ={{height: 150,width:300,paddingLeft:60,backgroundColor:'white'}}>
-
-        <Image
+      
+        <Image 
           style={styles.drawerImage}
-          source={require('../doctor.png')}
+          source={require('../logo.png')}
           />
           <Text style={{ fontWeight:'bold'}}>Dr. Nick Tesla</Text>
     </View>
@@ -500,7 +461,7 @@ return (
     labelStyle: {
       color: 'white',
     },
-
+    
     activeTintColor:'red'
   }
    },

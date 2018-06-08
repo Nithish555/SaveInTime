@@ -23,18 +23,6 @@ const { width, height } = Dimensions.get('window');
 
 const util=require('util');
 
-var ImagePicker = require('react-native-image-picker');
-
-var options = {
-  title: 'choose',
-//  customButtons: [
-  //  {name: 'fb', title: 'Choose Photo from Facebook'},
-  //],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images',
-  }
-};
 
  export  default class stroke extends Component{
   constructor(){
@@ -56,7 +44,7 @@ render(){
     value: 'Urgent',
   }, {
     value: 'Normal',
-  },
+  }, 
     ];
 
 return (
@@ -70,10 +58,12 @@ return (
               style: { color: '#fff', fontWeight: 'bold', fontSize: 18 },
             }}
             rightComponent={
-
-
-                              <Image style={{width:30,height:30}}
-                                   source={require('try_camera/component/doctor.png')}/>
+              <Icon
+                name="search"
+                color='#fff'
+                onPress={() => console.log('pressed')}
+                //underlayColor={'#64b5f6'}
+              />
             }
             leftComponent={
               <Icon
@@ -105,12 +95,12 @@ return (
     </View>
     <View style={styles.top2}>
     <View style={styles.button3}>
-            <TouchableOpacity onPress ={this.show.bind(this)}>
+            <TouchableOpacity onPress={this._onPressButton}>
             <View style={styles.button4}>
             <Text style={styles.buttonText}>upload ECG</Text>
             </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress ={this.show.bind(this)}>
+            <TouchableOpacity onPress={this._onPressButton}>
             <View style={styles.button4}>
             <Text style={styles.buttonText}>upload SCAN</Text>
             </View>
@@ -134,7 +124,7 @@ return (
        // dropdownOffset={{data: 0}}
        fontSize={17}
        labelFontSize= {18}
-
+       
       />
   </View>
   </View>
@@ -149,32 +139,6 @@ return (
 
       );
     }
-    show(){
-      ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
-
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      }
-      else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      }
-      else if (response.customButton) {
-        console.log('User tapped custom button: ', response.customButton);
-      }
-      else {
-        let source = { uri: response.uri };
-
-        // You can also display the image using data:
-        //let source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-        this.setState({
-          avatarSource: source
-        });
-      }
-    });
-
-    }
   }
 
   const toolbarActions =[
@@ -186,7 +150,7 @@ return (
     {title:'action4'},
     //{title: 'Settings', icon: require('./component/menu.png'), show: 'always'}
   ]
-
+  
   const styles = StyleSheet.create({
     screen: {
       backgroundColor: '#ffffff',
@@ -194,7 +158,7 @@ return (
       alignContent:'stretch',
       alignSelf:'auto',
       alignItems:'stretch'
-
+     
     },
 
     toolBar:{
@@ -271,12 +235,12 @@ return (
     baseText:{
       fontSize:18,
       marginTop:25,
-
+      
     },
     baseText1:{
       fontSize:18,
       marginTop:15,
-
+      
     },
 
     textInput: {
@@ -291,7 +255,7 @@ return (
       fontSize:17,
       marginLeft:15,
       marginRight:15
-
+      
   },
   topMenu: {
     height: 53,
