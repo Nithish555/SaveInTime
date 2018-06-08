@@ -13,7 +13,7 @@ import {
   Image,
   Dimensions,
   ScrollView
-  
+
   //Header,
 } from 'react-native';
 import MultiStep from 'react-native-multistep-wizard';
@@ -24,6 +24,20 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { Dropdown } from 'react-native-material-dropdown';
 import ToggleSwitch from 'toggle-switch-react-native';
 
+
+
+var ImagePicker = require('react-native-image-picker');
+
+var options = {
+  title: 'choose',
+//  customButtons: [
+  //  {name: 'fb', title: 'Choose Photo from Facebook'},
+  //],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  }
+};
 type Props = {};
 export default class StepTwo extends Component<Props> {
     constructor() {
@@ -41,7 +55,7 @@ export default class StepTwo extends Component<Props> {
         this.props.prevFn()
       }
       ShowHideTextComponentView = () =>{
- 
+
         if(this.state.status == true)
         {
           this.setState({status: false})
@@ -65,7 +79,7 @@ export default class StepTwo extends Component<Props> {
         value: 'Female',
       },];
     return (
-      
+
       <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.top}>
                      <TextInput
@@ -85,7 +99,7 @@ export default class StepTwo extends Component<Props> {
                    <View style={{width:100,paddingLeft:10}}>
        <Dropdown
         label='Sex'
-        data={data1} 
+        data={data1}
         baseColor={'black'}
         labelColor={'#000000'}
         fontSize={18}
@@ -125,7 +139,7 @@ export default class StepTwo extends Component<Props> {
 />
 </View>
 {this.state.status ?<View style ={styles.top3}>
-   <TouchableOpacity>
+   <TouchableOpacity onPress ={this.show.bind(this)}>
             <View style={styles.button2}>
             <Text style={styles.buttonText}>upload ECG</Text>
             </View>
@@ -151,7 +165,7 @@ export default class StepTwo extends Component<Props> {
         </TouchableOpacity>
         </View>
   <View style={{alignItems:'flex-end',paddingLeft:145,marginRight:20}}>
-        <TouchableOpacity onPress={ this.nextPreprocess } >   
+        <TouchableOpacity onPress={ this.nextPreprocess } >
         <View style={styles.button}>
             <Text style={styles.buttonText}>Next</Text>
             </View>
@@ -161,7 +175,33 @@ export default class StepTwo extends Component<Props> {
 </ScrollView>
     );
   }
-  
+  show(){
+      ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        let source = { uri: response.uri };
+
+        // You can also display the image using data:
+        //let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({
+          avatarSource: source
+        });
+      }
+    });
+
+    }
+
 }
 
 
@@ -189,7 +229,7 @@ const styles = StyleSheet.create({
     //paddingHorizontal:30 ,
     marginTop:10,
     //marginBottom: 4,
-    //paddingLeft:30, 
+    //paddingLeft:30,
     backgroundColor: '#ffffff',
     //borderRadius: 20,
     fontSize:17,
@@ -206,7 +246,7 @@ textInput1: {
   //paddingHorizontal:30 ,
   //marginTop:10,
   //marginBottom: 4,
-  //paddingLeft:30, 
+  //paddingLeft:30,
   backgroundColor: '#ffffff',
   //borderRadius: 20,
   fontSize:17,
@@ -266,7 +306,7 @@ top:{
 top1:{
   height:Dimensions.get('window').height/100*8,
   //position:'relative',
-  
+
    flexDirection:'row',
    alignSelf:'stretch',
  //justifyContent:'space-around',
