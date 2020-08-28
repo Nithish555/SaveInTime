@@ -4,6 +4,12 @@ Save In Time is a **React Native** mobile application serves as a platform for c
 
 # Sample User Interface
 
-### Home Page
+## Home Page
 <img src="https://github.com/Nithish555/SaveInTime/blob/master/component/Home%20Page.jpeg" height="1020" width="480">
+
+## Main Page 1
+<img src="https://github.com/Nithish555/SaveInTime/blob/master/component/Main%20Page.jpeg" height="1020" width="480">
+
+## Main Page 2
+<img src="https://github.com/Nithish555/SaveInTime/blob/master/component/Main%20Page2.jpeg" height="1020" width="480">
 
