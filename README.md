@@ -7,9 +7,3 @@ Save In Time is a **React Native** mobile application serves as a platform for c
 ### Home Page
 ![Home Page](https://user-images.githubusercontent.com/39454782/91585047-29cb7f80-e971-11ea-9761-84618b06f54a.jpeg)
 
-### Main Page
-![Main Page](https://user-images.githubusercontent.com/39454782/91585054-2c2dd980-e971-11ea-97dd-dd0d79a28681.jpeg)
-
-### Main Page
-![Main Page2](https://user-images.githubusercontent.com/39454782/91585066-2f28ca00-e971-11ea-9096-9971ba6fdc53.jpeg)
-
